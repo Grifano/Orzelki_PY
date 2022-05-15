@@ -1,36 +1,44 @@
-import random  
-# Podlaczcy biblioteke random
+import random
+import datetime
 
-powitania = ['Hej', 'Hejka', 'Siema', 'Dzien dobry', 'Siemanko', 'Dzien doberek']
-# Lista z powitaniem
+# *** Dane do losowania ***
 
-losowe_powitanie = random.choice(powitania)
-# Losowanie powitania
+sniadania = ['Owsianka', 'Pancakes', 'Serniki', 'Twarog', 'Zapiekanka z gruszką', 'Zapiekanka z cukinią', 'leniwa owsianka', 'granola', 'Kasza przenna z pomarańczą', 'Omlet', 'Jaja gotowane']
 
-imiona = ['Anna', 'Dawid', 'Frania', 'Irek', 'Kasia', 'Oliwka', 'Piotr', 'Szymon', 'Ola L.', 'Milena', 'Ola S.']
-# Lista z imonami
+drugie_sniadania = ['Kanapki z bananowym twarogiem', 'lawasz', 'Jogurt', 'herbata z ciasteczkami/rogalikami']
 
-losowe_imie = random.choice(imiona)
-# Losowanie imiona
+obiady = ['Barszcz', 'Makaron z ketchupem/serem', 'Jakaś kasza']
 
-imie_osoby = input(f'{losowe_powitanie}, jak masz na imie? ') 
-# Pyta jak masz na imie
+kolacje = ['Ryba z owocami', 'Kasza gryczna z buraczkiem', 'Herbata']
 
-print(f'Witaj {imie_osoby} a ja jestem {losowe_imie}') 
-# Zwrucic sie do urzytkownika z wylosowanym imiem
+# *** End ***
 
-print('Ile masz lat?')
-# Zapytaj uzytkownika o imie
+# *** Controller ***
 
-mam_lat = input('Mam, ')
-# Napisac ile masz lat
+# Funcja losowania dan
+#   - Uzyc biblioteki random
+#   - Nie losowac Te danie jakie juz bylo wczoraj
+#   - Losowac odpowidni posilek do godziny dnai (Sniadania miedzy 07:00 - 08:00)
+#   - Zwrucic wylosowane danie
 
-wiek = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
-# Lista z Wiekiem 
+def losowanie_dania(lista_dan):
+  print(random.choice(lista_dan))
+  
+# *** End ***
 
-losowy_wiek = random.choice(wiek)
-# Wylosuj uzytkownikowi wiek
+# *** Interface Urzytkownika (User Interface)
+# 
+# *** End ***
 
-print(f'Ja mam {losowy_wiek}')
-# Zwrucic sie do urzytkownika z wylosowanym wiekiem
+godzina = datetime.datetime.now().time()
 
+# if godzina in range(7,8):
+#   losowanie_dania(sniadania)
+# elif godzina in range(13,14):
+#   losowanie_dania(obiady)
+# elif godzina in range(11,12):
+#   losowanie_dania(drugie_sniadania)
+# elif godzina in range(16,17):
+#   losowanie_dania(kolacje)
+# else:
+#   print('Nie casz na jedzenie, swinko!')
